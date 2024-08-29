@@ -1,0 +1,7 @@
+<form>
+	<label name="customer" />
+	<field name="customer" />
+	<label name="message" />
+	<field name="message" />
+	 <button name="mybutton" type="object" string="Send SMS" class="btn-primary"/>
+</form>

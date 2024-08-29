@@ -1,0 +1,9 @@
+<form>
+    <label name="account_sid"/>
+    <field name="account_sid"/>
+    <label name="auth_token"/>
+    <field name="auth_token"/>
+    <label name="from_number"/>
+    <field name="from_number"/>
+
+</form>

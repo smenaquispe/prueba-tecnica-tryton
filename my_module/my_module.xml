@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <!-- Definir un ícono para el menú -->
+        <record model="ir.ui.icon" id="my_module_icon">
+            <field name="name">my-module-icon</field>
+            <field name="path">icons/my-module-icon.svg</field>
+        </record>
+
+        
+        <!-- Crear las vistas -->
+        <record model="ir.ui.view" id="my_module_view_form">
+            <field name="model">my_module.my_model</field>
+            <field name="type">form</field>
+            <field name="name">my_module_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="my_module_view_list">
+            <field name="model">my_module.my_model</field>
+            <field name="type">tree</field>
+            <field name="name">my_module_list</field>
+        </record>
+
+
+	
+	<record model="ir.ui.view" id="twilio_configuration_view_form">
+		<field name="model">my_module.twilio_configuration</field>
+		<field name="type">form</field>
+		<field name="name">twilio_configuration_form</field>
+	</record>
+
+	<record model="ir.ui.view" id="twilio_configuration_view_list">
+		<field name="model">my_module.twilio_configuration</field>
+		<field name="type">tree</field>
+		<field name="name">twilio_configuration_list</field>
+	</record>
+
+
+        <!-- Crear una acción para abrir un formulario dentro del módulo -->
+        <record model="ir.action.act_window" id="act_my_module_form">
+            <field name="name">My Module</field>
+            <field name="res_model">my_module.my_model</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_my_module_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="my_module_view_list"/>
+            <field name="act_window" ref="act_my_module_form"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_my_module_form_view2">
+         <field name="sequence" eval="20"/>
+         <field name="view" ref="my_module_view_form"/>
+         <field name="act_window" ref="act_my_module_form"/>
+      	</record>
+
+
+	<record model="ir.action.act_window" id="act_twilio_configuration_form">
+            <field name="name">Twilio Configuration</field>
+	    <field name="res_model">my_module.twilio_configuration</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_twilio_configuration_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="twilio_configuration_view_list"/>
+            <field name="act_window" ref="act_twilio_configuration_form"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_twilio_configuration_form_view2">
+         <field name="sequence" eval="20"/>
+         <field name="view" ref="twilio_configuration_view_form"/>
+         <field name="act_window" ref="act_twilio_configuration_form"/>
+      	</record>
+
+
+        <!-- Crear el menú principal en el panel lateral -->
+        <menuitem
+            name="My Module"
+            sequence="50"
+            id="menu_my_module"
+            icon="my-module-icon"/>
+
+        <!-- Crear un submenú con una acción -->
+        <menuitem
+            parent="menu_my_module"
+            action="act_my_module_form"
+            sequence="10"
+		id="menu_my_module_form"/>
+	
+
+	<menuitem
+		parent="menu_my_module"
+		action="act_twilio_configuration_form"
+		sequence="20"
+		id="menu_twilio_configuration_form" />
+    </data>
+</tryton>
+

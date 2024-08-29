@@ -1,0 +1,4 @@
+<tree>
+	<field name="customer" />
+	<field name="message" />
+</tree>

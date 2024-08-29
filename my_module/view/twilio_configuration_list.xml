@@ -1,0 +1,6 @@
+<tree>
+    <field name="account_sid"/>
+    <field name="auth_token"/>
+    <field name="from_number"/>
+
+</tree>
